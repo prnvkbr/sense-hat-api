@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title>Baby Monitor</title>
+    <link href="/static/style.css" rel="stylesheet" media="all">
+</head>
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center" >{{ 'BABY MONITOR'  }}</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li id="resButton"><a class="waves-effect waves-light btn" onclick="queryDB()">Get Results <i class="material-icons right">send</i></a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li id="resButton"><a class="waves-effect waves-light btn" onclick="queryDB()">Get Results <i class="material-icons right">send</i></a></li>
+</ul>
+
+
+<table style="width: 100%">
+    <div class="container">
+    <thead>
+        <tr>
+            <th>Temperature</th>
+            <th>Pressure</th>
+            <th>Humidity</th>
+        </tr>
+    </thead>
+        <tbody id="tbody"></tbody>
+    </div>
+</table>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+</script>
+
+<script type="text/javascript">
+    function queryDB() {
+      $('#tbody').empty();
+      $.getJSON('/get', function(json_object) {
+            var eachrow = "<tr>"
+                 + "<td>" + json_object.temp + "</td>"
+                 + "<td>" + json_object.pressure + "</td>"
+                 + "<td>" + json_object.humidity + "</td>"
+                 + "</tr>";
+     $('#tbody').append(eachrow);
+      });
+    }
+</script>
+
+</body>
+</html>
