@@ -11,7 +11,7 @@ and a video stream from a Raspberry Pi NoIR camera
 
 ## Versioning
 V0.1 [In progress]
-* display basic temperature and pressure and video feed on a [local] webpage [Done]
+* display basic temperature and humidity and video feed on a [local] webpage [Done]
 * audio input to stream sound
 * improve UI
 * possible rewrite in React
