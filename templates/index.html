@@ -35,7 +35,6 @@
     <thead>
         <tr>
             <th>Temperature</th>
-            <th>Pressure</th>
             <th>Humidity</th>
         </tr>
     </thead>
@@ -55,14 +54,18 @@
       $('#tbody').empty();
       $.getJSON('/get', function(json_object) {
             var eachrow = "<tr>"
-                 + "<td>" + json_object.temp + "</td>"
-                 + "<td>" + json_object.pressure + "</td>"
+                 + "<td>" + json_object.temp + "</td>" 
                  + "<td>" + json_object.humidity + "</td>"
                  + "</tr>";
      $('#tbody').append(eachrow);
       });
     }
 </script>
+
+<div class="flexible-container">
+<iframe src="http://192.168.0.11:8082" type = "video/mp4" frameborder="0" style="border:0"></iframe>
+</div>
+
 
 </body>
 </html>
