@@ -4,7 +4,7 @@
 An attempt to create a simple prototype for a baby monitor by combining sensor data from a Raspberry Pi Sense Hat 
 and a video stream from a Raspberry Pi NoIR camera
 
-## What do I need to get started?
+## What hardware do I need to get started?
 1. Raspberry Pi 3 (Model B+)
 2. Sense Hat
 3. Raspberry Pi NOIR camera
